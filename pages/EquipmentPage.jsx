@@ -7,6 +7,7 @@ import AppSearch from "../components/AppSearch";
 // import TestFilter from "../components/TestFilter";
 import axios from "axios";
 // import { set } from "date-fns";
+import API_URL from "../src/config";
 
 function EquipmentPage() {
   // ้เลือก View
@@ -40,7 +41,7 @@ function EquipmentPage() {
   //function ดึงข้อมูล
   const fetchEquipment = ()=>{
     axios
-      .get("http://localhost:8081/equipment")
+      .get(`${API_URL}/equipment`)
       .then((res) => {
         console.log(res.data); // เพิ่มตรงนี้
         setDataEquipment(res.data);
@@ -73,7 +74,7 @@ function EquipmentPage() {
           console.log("กำลังค้นหา...", keywordSearch);
  
           let resultSearch = await axios.get(
-            `http://localhost:8081/search?keyword=${keywordSearch}`,
+            `${API_URL}/search?keyword=${keywordSearch}`,
           );
           console.log("Test resultSearch:", resultSearch); // ตรวจสอบผลลัพธ์ที่ได้จาก API
 

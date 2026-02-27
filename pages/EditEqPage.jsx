@@ -9,6 +9,7 @@ import { useState, useEffect, use } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import CalendarTH from "../components/CalendarTH.jsx";
 import { useParams } from "react-router-dom";
+import API_URL from "../src/config.js";
 // useNavigate, 
 import Select from "react-select";
 
@@ -53,7 +54,7 @@ const [validated, setValidated] = useState(false);
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8081/edit_equipment/${eq_id}`)
+      .get(`${API_URL}/edit_equipment/${eq_id}`)
       .then((res) =>{ setFormData({...res.data,
                     order_date:res.data.order_date?new Date(res.data.order_date):null,
                     received_date:res.data.received_date?new Date(res.data.received_date):null,
@@ -111,7 +112,7 @@ const [validated, setValidated] = useState(false);
   useEffect(() => {
     console.log("type equipment | useEffect ประเภทครุภัณฑ์ |");
     axios
-      .get("http://localhost:8081/type_equipment")
+      .get(`${API_URL}/type_equipment`)
       .then((res) => {
         console.log(
           "2.type_equipment dropdown | res | ดึงข้อมูลสาขามาแสดงใน dropdown",
@@ -150,7 +151,7 @@ const [validated, setValidated] = useState(false);
   useEffect(() => {
     console.log("1.branch | useEffect สาขา |");
     axios
-      .get("http://localhost:8081/branch")
+      .get(`${API_URL}/branch`)
       .then((res) => {
         console.log(
           "2.branch dropdown | res | ดึงข้อมูลสาขามาแสดงใน dropdown",
@@ -191,7 +192,7 @@ const [validated, setValidated] = useState(false);
         selectedBranch.value,
       );
       axios
-        .get(`http://localhost:8081/department/${selectedBranch.value}`)
+        .get(`${API_URL}/department/${selectedBranch.value}`)
         .then((res) => {
           console.log(
             "3.dropdown Department | res | ดึงข้อมูลแผนก → สาขาที่เลือก",
@@ -225,7 +226,7 @@ const [validated, setValidated] = useState(false);
         selectedBranch.value,
       );
       axios
-        .get(`http://localhost:8081/building/${selectedBranch.value}`)
+        .get(`${API_URL}/building/${selectedBranch.value}`)
         .then((res) => {
           console.log(
             "3.dropdown building | res | ดึงข้อมูลอาคาร → สาขาที่เลือก",
@@ -319,7 +320,7 @@ const [validated, setValidated] = useState(false);
     if (selectedFloor) {
       console.log("2.Room | เลือก | selectedFloor", selectedFloor.value);
       axios
-        .get(`http://localhost:8081/room/${selectedFloor.value}`)
+        .get(`${API_URL}/room/${selectedFloor.value}`)
         .then((res) => {
           console.log(
             "2.dropdown Room | res | ดึงข้อมูลห้อง → ชั้นที่เลือก",
@@ -395,7 +396,7 @@ const [validated, setValidated] = useState(false);
 
   const fetchEquipment = () => {
     axios
-      .get("http://localhost:8081/equipment")
+      .get(`${API_URL}/equipment`)
       .then((res) => setEquipmentList(res.data))
       .catch((err) =>
         console.error({ message: "เกิดข้อผิดพลาดในการดึงข้อมูล @Eq" + err }),
@@ -449,7 +450,7 @@ const [validated, setValidated] = useState(false);
       data.append("id_status_eq", formData.id_status_eq);
 
       const response = await axios.put(
-        `http://localhost:8081/update_equipment/${eq_id}`,
+        `${API_URL}/update_equipment/${eq_id}`,
         data,
       );
       console.log("Created Successfully", response.data);

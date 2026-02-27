@@ -12,6 +12,7 @@ import CalendarTH from "../components/CalendarTH";
 import Select from "react-select";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import API_URL from "../src/config";
 
 const UpdateEqPage = () => {
     //1.ดึง id จาก url
@@ -64,8 +65,8 @@ const UpdateEqPage = () => {
         const fetchEditData= async()=>{
           try{
           const [typeEqRes,equipmentRes]= await Promise.all([
-            axios.get('http://localhost:8081/type_equipment'),
-            axios.get(`http://localhost:8081/edit_equipment/${eq_id}`)
+            axios.get(`${API_URL}/type_equipment`),
+            axios.get(`${API_URL}/edit_equipment/${eq_id}`)
           ]);
           const getEqData=equipmentRes.data;
          
@@ -111,7 +112,7 @@ const UpdateEqPage = () => {
     const handleUpdate=async(e)=>{
         e.preventDefault();
       try{
-         await axios.put(`http://localhost:8081/update_equipment/${eq_id}`,equipment);
+         await axios.put(`${API_URL}/update_equipment/${eq_id}`,equipment);
          console.log(res);
          alert("อัปเดตข้อมูลสำเร็จ !");
          navigate('/equipment')//กลับไปหน้ารายการ
@@ -146,7 +147,7 @@ const UpdateEqPage = () => {
   useEffect(() => {
     console.log("type equipment | useEffect ประเภทครุภัณฑ์ |");
     axios
-      .get("http://localhost:8081/type_equipment")
+      .get(`${API_URL}/type_equipment`)
       .then((res) => {
         console.log(
           "2.type_equipment dropdown | res | ดึงข้อมูลสาขามาแสดงใน dropdown",
@@ -173,7 +174,7 @@ const UpdateEqPage = () => {
   useEffect(() => {
     console.log("1.branch | useEffect สาขา |");
     axios
-      .get("http://localhost:8081/branch")
+      .get(`${API_URL}/branch`)
       .then((res) => {
         console.log(
           "2.branch dropdown | res | ดึงข้อมูลสาขามาแสดงใน dropdown",
@@ -203,7 +204,7 @@ const UpdateEqPage = () => {
         selectedBranch.value
       );
       axios
-        .get(`http://localhost:8081/department/${selectedBranch.value}`)
+        .get(`${API_URL}/department/${selectedBranch.value}`)
         .then((res) => {
           console.log(
             "3.dropdown Department | res | ดึงข้อมูลแผนก → สาขาที่เลือก",
@@ -236,7 +237,7 @@ const UpdateEqPage = () => {
         selectedBranch.value
       );
       axios
-        .get(`http://localhost:8081/building/${selectedBranch.value}`)
+        .get(`${API_URL}/building/${selectedBranch.value}`)
         .then((res) => {
           console.log(
             "3.dropdown building | res | ดึงข้อมูลอาคาร → สาขาที่เลือก",
@@ -273,7 +274,7 @@ const UpdateEqPage = () => {
     if (selectedBuilding) {
       console.log("2.Floor | เลือก | selectedBuilding", selectedBuilding.value);
       axios
-        .get(`http://localhost:8081/floor/${selectedBuilding.value}`)
+        .get(`${API_URL}/floor/${selectedBuilding.value}`)
         .then((res) => {
           console.log(
             "3.dropdown Floor| res | ดึงข้อมูลชั้น → อาคารที่เลือก",
@@ -306,7 +307,7 @@ const UpdateEqPage = () => {
     if (selectedFloor) {
       console.log("2.Room | เลือก | selectedFloor", selectedFloor.value);
       axios
-        .get(`http://localhost:8081/room/${selectedFloor.value}`)
+        .get(`${API_URL}/room/${selectedFloor.value}`)
         .then((res) => {
           console.log(
             "2.dropdown Room | res | ดึงข้อมูลห้อง → ชั้นที่เลือก",
@@ -360,7 +361,7 @@ const UpdateEqPage = () => {
 
   const fetchEquipment = () => {
     axios
-      .get("http://localhost:8081/equipment")
+      .get(`${API_URL}/equipment`)
       .then((res) => setEquipmentList(res.data))
       .catch((err) =>
         console.error({ message: "เกิดข้อผิดพลาดในการดึงข้อมูล @Eq" + err })
