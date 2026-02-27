@@ -1,0 +1,181 @@
+/*ButtonToggle*/
+
+.styleColorbtn{
+    background-color : var(--color-bg-secondary),
+    border: 2px solid var(--color-bg-secondary)
+}
+
+
+
+/*Details Card List มากกว่าเท่ากับ 769*/
+@media (min-width: 769px) {
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 10px;
+  background-color:var(--color-bg-sidebar);
+  padding: 20px;
+  margin:30px;
+}
+.item2, .item3{
+   /* background-color:pink;  */
+  /* text-align: left; */
+
+  font-size: clamp(10px, 1vw,18px);
+  color:var(--color-text-primary);
+}
+.item1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:var(--color-bg-primary);
+  padding:10px;
+}
+
+.item1 img {
+  width:clamp(250px, 2.5vw,350px);
+  height: 100%;
+  object-fit: cover;
+}
+.item2{
+  padding-left:40px;
+}
+.item4{
+  /* background-color:var(--color-user-primary); */
+  background:var(--color-user-primary); 
+  border-radius:10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:white;
+  font-size:20px;
+}
+
+.item5{
+  background:var(--color-font-primary); 
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent; 
+  font-size:25px;
+  grid-column: span 2;
+  text-align:right;
+
+}}
+
+/*Details Card List /* แท็บเล็ต */
+@media (min-width: 481px) and (max-width: 768px) {
+  .grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 10px;
+  background-color:var(--color-bg-sidebar);
+  padding: 20px;
+  margin:30px;
+}
+
+.item2, .item3{
+   /* background-color:pink;  */
+  /* text-align: left; */
+  /* font-size: clamp(6px, 2.5vw,10px); */
+  font-size: clamp(8px, 1vw,10px);
+  color:var(--color-text-primary);
+}
+.item1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:var(--color-bg-primary);
+  padding:10px;
+
+}
+.item1 img {
+  width:clamp(200px, 2.5vw,250px);
+  height: 50%;
+  object-fit: cover;
+  
+}
+.item2{
+  padding-left:20px;
+}
+.item4{
+  /* background-color:var(--color-user-primary); */
+  background:var(--color-user-primary); 
+  border-radius:10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:white;
+
+}
+
+.item5{
+  background:var(--color-font-primary); 
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent; 
+  font-size:20px;
+  grid-column: span 2;
+  text-align:right;
+
+}
+}
+
+
+
+ /* มือถือแนวตั้ง */
+@media (max-width: 480px) { 
+  .grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 5px;
+  /* background-color:var(--color-bg-sidebar); */
+  padding:10px;
+  margin:15px;
+  
+}
+/* .grid-container div{
+  border:solid 2px red;
+} */
+.item2, .item3{
+   /* background-color:pink;  */
+  /* text-align: left; */
+  font-size: clamp(8px, 1vw,10px);
+  color:var(--color-text-primary);
+}
+.item1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:var(--color-bg-primary);
+  padding:8px;
+
+}
+
+.item1 img {
+  width:clamp(200px, 2.5vw,250px);
+  height: 50%;
+  object-fit: cover;
+}
+.item2{
+  padding-left:10px;
+}
+.item4{
+  /* background-color:var(--color-user-primary); */
+  background:var(--color-user-primary); 
+  border-radius:10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:white;
+  font-size:20px;
+  height:35px;
+}
+
+.item5{
+  background:var(--color-font-primary); 
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent; 
+  font-size:20px;
+  grid-column: span 2;
+  text-align:right;
+
+}
+}

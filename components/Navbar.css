@@ -1,0 +1,351 @@
+/* index.css หรือ App.css */
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+} 
+
+.sidebar{
+    position:sticky;
+    top:0;
+    height:100vh;
+    width:270px;
+    background:var(--color-bg-sidebar);
+    border-right: 1px solid var(--color-border-hr);
+    box-shadow:0 3px 9px var(--color-shadow);
+    /*แต่งทำให้ navbar เมื่อย่อขนาด*/
+    display:flex;
+    flex-direction:column;
+    flex-shrink:0; /*ถ้ามี flex-shrink: 0; แล้ว parent มีขนาดเล็กลง item จะไม่ถูกย่อขนาดให้เล็กลง อาจทำให้เกิด overflow แทน*/
+    /*สิ้นสุด*/
+    background:var(--color-bg-sidebar);
+    border-right:1px solid var (--color-border-hr);
+    box-shadow: 0 3px 9px var(--color-shadow);
+    transition:width 0.4s ease;
+}
+/*กำหนดสไตล์ sidebar เมื่อมีการคลิกปุ่มเปิดปิด navbar*/
+.sidebar.collapsed{
+    width:90px;
+}
+
+/* กำหนดระยะห่าง padding และกำหนดระยะห่างระหว่าง logo กับ ปุ่ม */
+.sidebar .sidebar-header{
+    display:flex;
+    padding:20px 18px;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom:1px solid var(--color-border-hr);
+}
+/* ตั้งค่าขนาด sider-header and header-logo */
+.sidebar-header .header-logo{
+    width:46px;
+    height:50px;
+    object-fit:cover;
+    display:block;
+    transition:opacity 0.4s ease; /*เมื่อมีการกดปุ่มปิดเปิด nav*/
+    /* border-radius:50%; */
+}
+
+/*กำหนดสไตล์ sidebar เมื่อมีการคลิกปุ่มเปิดปิด navbar กำหนดขนาด logo*/
+.sidebar.collapsed .sidebar-header .header-logo{
+    opacity:0; /*- ทำให้องค์ประกอบ โปร่งใส 100% (มองไม่เห็น*/
+    pointer-events:none; /*ปิดการโต้ตอบของเมาส์ (คลิก,hover,drag)บนองค์ประกอบนั้น*/
+} 
+
+/*ตั้งค่า toggle ลูกศรให้อยูตรงกลางปุ่ม*/
+.site-nav .sidebar-toggle,
+.sidebar-header .sidebar-toggle{
+    height:40px;
+    width:40px;
+    border:none;
+    position:absolute; /*กำหนดสไตล์ sidebar เมื่อมีการคลิกปุ่มเปิดปิด navbar กำหนด sidebar-toggle*/
+    right:18px;/*กำหนดสไตล์ sidebar เมื่อมีการคลิกปุ่มเปิดปิด navbar กำหนด sidebar-toggle*/
+    border-radius:8px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--color-text-primary);
+    background:var(--color-bg-secondary);
+    transition:0.4s ease;
+}
+/*กำหนดสไตล์ sidebar เมื่อมีการคลิกปุ่มเปิดปิด navbar กำหนด sidebar-toggle*/
+.sidebar.collapsed .sidebar-header .sidebar-toggle{
+ height:48px;
+ width:50px;
+ tranform:translatex(-2px);
+}
+
+
+
+/*เปลี่ยนสี sidebar เมื่อ click*/
+..site-nav .sidebar-toggle:hover,
+.sidebar-header .sidebar-toggle:hover{
+    background :var(--color-hover-secondary)
+}
+.sidebar-header .sidebar-toggle span{
+    font-size:1.75rem;
+    transition:tranform 0.4s ease;
+}
+
+/*กำหนดสไตล์ sidebar เมื่อมีการคลิกปุ่มเปิดปิด navbar กำหนด sidebar-toggle span*/
+.sidebar.collapsed .sidebar-toggle span{
+     transform: rotate(180deg); /*หมุน*/
+ 
+}
+
+/* ระยะห่าง padding
+overflow-x: hidden → ซ่อน scrollbar แนวนอน (ไม่ให้เลื่อนซ้าย-ขวา)
+overflow-y: auto → แสดง scrollbar แนวตั้ง เฉพาะเมื่อเนื้อหาล้น */
+
+.sidebar .sidebar-content{
+    padding:20px 18px;
+    overflow:hidden auto;
+    scrollbar-width:thin;
+    scrollbar-color:var(--color-text-placeholder) transparent;
+}
+
+/*สไตล์ nav เมื่อกดปุ่ม-เปิดปิด*/
+.sidebar.collapsed .sidebar-content{
+    scrollbar-width:none;
+}
+
+/*ตกแต่ง search-form*/
+.sidebar-content .search-form{
+    margin-bottom:20px;
+    min-height:48px;
+    border-radius:8px;
+    display:flex;
+    padding:0 15px;
+    align-items:center;
+    white-space:nowrap;
+    background:var(--color-bg-secondary);
+    transition:0.4s ease;
+}
+/*ตกแต่ง search-form collapsed*/
+.sidebar.collapsed .sidebar-content .search-form:hover{
+cursor:pointer;
+}
+
+/*ตกแต่ง search-form focus*/
+.sidebar.collapsed .sidebar-content .search-form:hover,
+.sidebar-content .search-form:focus-within{
+    background: var(--color-hover-secondary);
+}
+
+/**/
+
+/*ตกแต่ง search-form input*/
+.search-form input{
+    border:none;
+    background:none;
+    outline:none;
+    font-size:1rem;
+    width:100%;
+    margin-left:15px;
+    color:var(--color-text-primary);
+}
+
+/*แต่งสี search*/
+.search-form span{
+    color:var(--color-text-placeholder);
+}
+
+/*แต่งสี search เมื่อกรอกข้อความ*/
+.search-form input::placeholder{
+    color:var(--color-text-placeholder);
+}
+
+/*ลบ padding margin จาก bootstrap แล้วใช้ที่ต้ังเอง*/
+.menu-list {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/*เอาจุดของ list ออก และกำหนดระยะห่างระหว่างเมนู*/
+.sidebar-content .menu-list{
+    flex:1;
+    display:flex;
+    gap:4px;
+    flex-direction:column;
+    list-style:none;
+}
+/* - transition คือการทำให้การเปลี่ยนแปลงค่าของ CSS properties เกิดขึ้นอย่างนุ่มนวล ไม่กระทันหัน
+- 0.3s หมายถึงระยะเวลาที่ใช้ในการ transition (0.3 วินาที)
+- ease คือ transition timing function ซึ่งทำให้การเปลี่ยนแปลงเริ่มต้นช้า เร็วขึ้นกลางทาง แล้วค่อย ๆ ช้าลงตอนท้า */
+
+/*แต่งสี link เมนูเมื่อเคอร์เซอร์ยังไม่โดน*/
+.menu-list .menu-link{
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    white-space:nowrap;
+    border-radius:8px;
+    padding-left:0;
+    padding:12px 15px;
+    color:var(--color-text-primary);
+    transition:0.3s ease;
+}
+
+.menu-link .menu-label{
+    transition: 0.3s ease;
+}
+
+/*กำหนดสไตล์ sidebar เมื่อมีการคลิกปุ่มเปิดปิด navbar กำหนด menu-link*/
+.sidebar.collapsed .menu-link .menu-label{
+    opacity:0;
+    pointer-events:none;
+}
+
+
+
+/*แต่งสีเมื่อเคอร์เซอร์วางบนปุ่มแล้ว*/
+/*active คือ กำหนดให้ list ที่มี tag active เป็นสีหลัก*/
+.menu-list .menu-link:is(:hover,.active){
+    color:#fff;
+    background:var(--color-hover-primary);
+
+
+}
+
+/*สีหลักปุ่ม mode dark*/
+.dark-theme .menu-list .menu-link:is(:hover,.active){
+    color:#fff;
+    background: linear-gradient(90deg, #00C4CC, #8A2BE2);
+
+
+}
+
+
+/*ตกแต่ง footer*/
+.sidebar .sidebar-footer{
+    padding:20px 18px;
+    white-space:nowrap;
+    border-top: 1px solid var(--color-border-hr);
+     margin-top: auto;
+}
+
+/*กำหนดตำแหน่ง flex ระหว่าง theme-label and theme-toggle-track  */
+/*หลังจากกำหนดสไตล์ให้ theme-label และ theme-toggle-track แล้ว นำทั้ง 2 อันมากำหนดตำแหน่งให้อยู่ตรงกลาง */
+.sidebar-footer .theme-toggle{
+    width:100%;
+    min-height:48px;
+    border-radius:8px;
+    border:none;
+    cursor:pointer;
+    padding:0 15px;
+    display:flex;
+    align-items:center;
+    color:var(--color-text-primary);
+    background:var(--color-bg-secondary);
+    transition:0.3s ease;
+}
+/*togle เปลี่ยนสี เมื่อ cursor วาง*/
+.sidebar-footer .theme-toggle:hover{
+    background:var(--color-hover-secondary);
+}
+
+/*ตกแต่ง button className="theme-toggle"*/
+/*จัดให้ them-label (Dark Mode) อยู่ตรงกลางระหว่างกัน*/
+.theme-toggle .theme-label{
+    display:flex;
+    gap:10px;
+    align-items:center;
+    /* border: 1px solid red; */
+}
+
+.theme-toggle .theme-label .theme-text{
+    font-size:1rem;
+    transition:opacity 0.4s 0.2s ease;
+}
+
+/*กำหนดสไตล์ sidebar เมื่อมีการคลิกปุ่มเปิดปิด navbar กำหนด .theme-toggle*/
+.sidebar.collapsed .theme-toggle :where(.theme-text, .theme-toggle-track){
+width:0;
+opacity:0;
+transition:all 0.2s ease;
+
+}
+
+/*ปุ่มกดสไลด์วงรี*/
+.theme-toggle .theme-toggle-track{
+    height:24px;
+    width:48px;
+    position:relative; /*ใช้กำหนดตำแหน่งขององค์ประกอบให้ ยังคงอยู่ใน flow ปกติของหน้าเว็บ แต่สามารถ เลื่อนตำแหน่งจากจุดเดิม ได้โดยใช้ top, left, right, และ bottom*/
+    border-radius:999px;
+    margin-left:auto;
+    background:#c3d1ec;
+    transition:opacity 0.4s 0.2s ease, background-color 0.3s ease; /*transition เมื่อกดปุ่ม nav icon dark mode จะเล็กลงเมื่อกดปิด*/
+}
+
+/*ปุ่ม toggle ในโหมด dark-theme*/
+.dark-theme .theme-toggle .theme-toggle-track{
+      background: linear-gradient(90deg, #00C4CC, #8A2BE2);}
+
+/*วงกลมที่อยู่ในวงรี toggle*/
+.theme-toggle-track .theme-toggle-indicator{
+    position:absolute; /*ใน CSS ใช้กำหนดตำแหน่งขององค์ประกอบให้ ไม่ขึ้นอยู่กับ flow ปกติของหน้าเว็บ และสามารถกำหนดตำแหน่งได้อย่างอิสระโดยใช้ top, left, right, และ bottom*/
+    top:3px;
+    left:3px;
+    height:18px;
+    width:18px;
+    background:#fff;
+    border-radius:50%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition:tranform 0.3s ease;
+}
+
+/*กำหนดวงกลมให้เลื่อนไปกลับได้*/
+.dark-theme .theme-toggle-track .theme-toggle-indicator{
+     transform:translatex(24px);}
+
+/*ไม่ให้แสดง mene burger ขณะหน้าจอใหญ่*/
+.site-nav{
+    display:none;
+    position:sticky;
+    top:0;
+    padding: 15px 20px;
+    background:var(--color-bg-primary);
+    border: 1px solid var(--color-border-hr);
+}
+
+.site-nav .sidebar-toggle{
+    position:unset;
+}
+
+
+@media (max-width:768px){
+    /* body::before{
+        content:"";
+        position:fixed;
+        inset:0;
+        opacity:0;
+        pointer-events:none;
+        background:rgba(0,0,0,0.6);
+    }
+    body:has(.sidebar.collapsed)::before{
+        opacity:1;
+        pointer-events:auto;
+    } */
+     /*แสดง navbar*/
+    .site-nav{
+        display:block;
+    }
+    .sidebar{
+        position:fixed;
+        left:0;
+        width:270px;
+        height:100%;
+        z-index:20;
+        transition:left 0.4s ease;
+    }
+    .sidebar.collapsed{
+       left:-270px;
+       width:270px;
+    }
+}

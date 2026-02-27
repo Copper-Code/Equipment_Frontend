@@ -1,0 +1,66 @@
+#root {
+  /* max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center; */
+}
+
+
+/*AddEquipmentPage*/
+/*add_section1 สไตล์แต่ละฟอร์ม*/
+.add_section1, .add_section2, .add_section3{
+  /* border-radius:5px; */
+  /* border:solid 1px #dee2e6; */
+  padding:10px 30px;
+  /* margin:10px; */
+  height:560px;
+  width:350px;
+  background-color:var(--color-input-form);
+  color:var(--color-text-primary);
+  text-align:left;
+
+}
+.add_section4{
+  border-radius:10px;
+  padding:30px;
+  margin-top:30px;
+  height:250px;
+  width: 95%;
+  background-color:var(--color-input-form);
+  color:var(--color-text-primary);
+  text-align:left;
+}
+.add_ss1, .add_ss2, .add_ss3{
+  
+  height:50px;
+  width:350px;
+  color:white;
+  /* border-top-right-radius:20px; */
+  border-top-right-radius:30px;
+  border-tottom-left-radius:10px;
+  padding-top:10px;
+  text-align:center;
+}
+.add_ss1{
+ background: #0085FF;
+}
+
+.add_ss2{
+  background: #FFB643;
+}
+
+.add_ss3{
+  background: #FF458F;
+}
+
+.color_input{
+  background-color:var(--color-input);
+}
+
+
+
+.no-valid-style .form-control:valid {
+  background-image: none;
+  border-color: #ced4da;
+  box-shadow: none;
+}
