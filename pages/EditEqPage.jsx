@@ -274,7 +274,7 @@ const [validated, setValidated] = useState(false);
     if (selectedBuilding) {
       console.log("2.Floor | เลือก | selectedBuilding", selectedBuilding.value);
       axios
-        .get(`${API_URL}/${selectedBuilding.value}`)
+        .get(`${API_URL}/floor/${selectedBuilding.value}`)
         .then((res) => {
           console.log(
             "3.dropdown Floor| res | ดึงข้อมูลชั้น → อาคารที่เลือก",
