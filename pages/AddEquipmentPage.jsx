@@ -9,12 +9,13 @@ import { useState, useEffect} from "react";
 import API_URL from "../src/config.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import CalendarTH from "../components/CalendarTH.jsx";
+import { useNavigate } from "react-router-dom";
 
 
 import Select from "react-select";
 
 const AddEquipmentPage = () => {
-
+    const navigate = useNavigate();
   const [validated, setValidated] = useState(false);
   const [previewImage, setPreviewImage] = useState(null);
   const noimage = "https://res.cloudinary.com/dpxabqt4z/image/upload/v1771990599/noimage_kqt3oi.png";
@@ -308,7 +309,7 @@ const AddEquipmentPage = () => {
       brand_eq: "",
       detail_eq: "",
       serialNo: "",
-      fiscal_year: "2568",
+      fiscal_year: "",
       order_date: null,
       received_date: null,
       warranty_expire: null,
@@ -404,9 +405,10 @@ const AddEquipmentPage = () => {
       );
       console.log("Created Successfully", response.data);
       alert("เพิ่มข้อมูลสำเร็จ ✅");
+      navigate("/equipment");
       // fetchEquipment(); // 👈 โหลดข้อมูลใหม่
       // window.location.reload(); // รีเฟรชทั้งหน้า
-      clearForm();
+      // clearForm();
     } catch (error) {
       console.log("เพิ่มข้อมูลไม่สำเร็จ");
       alert("เกิดข้อผิดพลาด ❌");
