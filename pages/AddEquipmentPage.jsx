@@ -404,8 +404,8 @@ const AddEquipmentPage = () => {
       );
       console.log("Created Successfully", response.data);
       alert("เพิ่มข้อมูลสำเร็จ ✅");
-      fetchEquipment(); // 👈 โหลดข้อมูลใหม่
-      window.location.reload(); // รีเฟรชทั้งหน้า
+      // fetchEquipment(); // 👈 โหลดข้อมูลใหม่
+      // window.location.reload(); // รีเฟรชทั้งหน้า
       clearForm();
     } catch (error) {
       console.log("เพิ่มข้อมูลไม่สำเร็จ");
