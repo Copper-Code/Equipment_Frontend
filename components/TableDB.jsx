@@ -10,12 +10,14 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Spinner from "react-bootstrap/Spinner";
+import API_URL from "../src/config";
 
 // import { main } from "@popperjs/core";
 // import { palette, ThemeProvider } from "@mui/system";
 import { ThemeProvider } from "@mui/material/styles";
 
 import { createTheme } from "@mui/material/styles";
+import API_URL from "../src/config";
 
 //สี
 const theme = createTheme({
@@ -70,7 +72,7 @@ export default function TableDB({ dataSearch, loading, refreshData }) {
     try {
       //  alert(`คุณต้องการลบข้อมูล เลขทะเบียน ${eq_id} ใช่หรือไม่`)
       const resDelete = await axios.delete(
-        `http://localhost:8081/delete_equipment/${selectedEq_id}`,
+        `${API_URL}/delete_equipment/${selectedEq_id}`,
       );
       //ปิด popup
       setOpen(false);
