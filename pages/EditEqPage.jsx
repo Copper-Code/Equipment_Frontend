@@ -10,15 +10,18 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import CalendarTH from "../components/CalendarTH.jsx";
 import { useParams } from "react-router-dom";
 import API_URL from "../src/config.js";
+import { useNavigate } from "react-router-dom";
 // useNavigate, 
 import Select from "react-select";
 
 const  EditEqPage = () => {
   //ดึง id จาก url
+
     const{eq_id} = useParams();
     const noimage = "https://res.cloudinary.com/dpxabqt4z/image/upload/v1771990599/noimage_kqt3oi.png";
     // const navigate = useNavigate
 
+    const navigate = useNavigate();
 //คลิกปุ่ม แก้ไข -- Table
 //ตรวจสอบว่ามีเลขแก้ไขในฐานข้อมูลไหมถ้ามีให้ไปหน้าแก้ไข Table
 //หน้าแก้ไข ดึงข้อมูลจากฐานข้อมูลเฉพาะ eq_id นั้น มาแสดงในฟอร์ม
@@ -413,7 +416,7 @@ const [validated, setValidated] = useState(false);
         const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
-      event.stopPropagation();
+      event.stopPropagation(); 
     }
 
     setValidated(true);
@@ -456,7 +459,8 @@ const [validated, setValidated] = useState(false);
       console.log("Created Successfully", response.data);
       alert("อัปเดตข้อมูลสำเร็จ ✅");
       fetchEquipment(); // 👈 โหลดข้อมูลใหม่
-      window.location.reload(); // รีเฟรชทั้งหน้า
+      navigate("/equipment")
+      // window.location.reload(); // รีเฟรชทั้งหน้า
       // clearForm();
     } catch (error) {
       console.log("อัปเดตข้อมูลไม่สำเร็จ");
