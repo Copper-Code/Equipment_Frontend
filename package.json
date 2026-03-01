@@ -8,6 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
+  
+   
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -17,7 +19,7 @@
     "@popperjs/core": "^2.11.8",
     "axios": "^1.13.5",
     "bootstrap": "^5.3.6",
-    "date-fns": "^4.1.0",
+    "date-fns": "2.30.0",
     "react": "^19.1.0",
     "react-bootstrap": "^2.10.10",
     "react-dom": "^19.1.0",
