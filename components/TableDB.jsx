@@ -17,7 +17,7 @@ import API_URL from "../src/config";
 import { ThemeProvider } from "@mui/material/styles";
 
 import { createTheme } from "@mui/material/styles";
-import API_URL from "../src/config";
+
 
 //สี
 const theme = createTheme({
