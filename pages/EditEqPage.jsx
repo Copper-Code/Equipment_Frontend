@@ -458,7 +458,7 @@ const [validated, setValidated] = useState(false);
       );
       console.log("Created Successfully", response.data);
       alert("อัปเดตข้อมูลสำเร็จ ✅");
-      fetchEquipment(); // 👈 โหลดข้อมูลใหม่
+      // fetchEquipment(); // 👈 โหลดข้อมูลใหม่
       navigate("/equipment")
       // window.location.reload(); // รีเฟรชทั้งหน้า
       // clearForm();
