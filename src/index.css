@@ -8,7 +8,8 @@
   font-style: normal;
   margin:0;
   padding:0;
-  box-sizing:border-box
+  box-sizing:border-box;
+
  
 }
 :root {
@@ -48,13 +49,16 @@
   --color-input-form:  #3D4859;
   --color-input:rgb(215, 215, 215);
 }
-
 body{
-  background:var(--color-bg-primary);
+  background-color:var(--color-bg-primary);
+
+
 }
 body .dark-theme{
-  background:var(--color-bg-primary);
-  color:var(--color-text-primary)
+  background-color:var(--color-bg-primary);
+  color:var(--color-text-primary);
+
+
  
 }
 

@@ -3,7 +3,9 @@ import Card from "react-bootstrap/Card";
 import Image from "react-bootstrap/Image";
 import Col from "react-bootstrap/Col";
 import Spinner from "react-bootstrap/Spinner";
-import "../src/App.css";
+import "../src/App.css"
+// import "../src/App.css";
+import "../src/index.css"
 // import {Riple} from "react-loading-indicators";
 // import { auto } from "@popperjs/core";
 // import CardGroup from "react-bootstrap/CardGroup";
@@ -39,47 +41,50 @@ function CardComponent({ dataSearch, loading }) {
 
   //Show image
 
-  const styleCard = {
-    backgroundColor: "var(--color-card-primary)",
-    width: "17rem",
-    borderRadius: "15px",
-    overflow: "hidden",
-    cursor: "pointer",
-  };
-  const styleImg = {
-    width: "100%",
-    height: "200px",
-    overflow: "hidden",
-    objectFit: "cover",
-    objectPosition: "center",
-  };
-  const styleFont = {
-    fontWeight: 350,
-    lineHeight: "0.6",
-    fontSize: "14px",
-    color: "var(--color-text-primary)",
-  };
-  const styleUser = {
-    width: 40,
-    height: 40,
-    objectFit: "cover",
-    objectPosition: "center",
-  };
+  // const styleCard = {
+  //   backgroundColor: "var(--color-card-primary)",
+  //   width: "17rem",
+  //   borderRadius: "15px",
+  //   overflow: "hidden",
+  //   // cursor: "pointer",
+  // };
+  // const styleImg = {
+  //   width: "100%",
+  //   height: "200px",
+  //   overflow: "hidden",
+  //   objectFit: "cover",
+  //   objectPosition: "center",
+  // };
+  // const styleFont = {
+  //   fontWeight: 350,
+  //   lineHeight: "0.6",
+  //   fontSize: "14px",
+  //   color: "var(--color-text-primary)",
+  // };
+  // const styleUser = {
+  //   width: 40,
+  //   height: 40,
+  //   objectFit: "cover",
+  //   objectPosition: "center",
+  // };
 
   // {data.map((equipment,index)=>{
   return (
+    
     //  <div style={{gap:'15px',display:'flex',flexWrap:'wrap'}}>
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "auto auto auto auto",
-        gap: "25px",
-        // border: '2px solid red',
-        // backgroundColor: 'dodgerblue',
-        padding: "10px",
-        placeItems: "center", //ทำให้ item ที่อยู่ใน grid จัดกึ่งกลาง
-      }}
-    >
+    // <div
+    //   style={{
+    //     display: "grid",
+    //     gridTemplateColumns: "auto auto auto auto",
+    //     gap: "25px",
+    //     // border: '2px solid red',
+    //     // backgroundColor: 'dodgerblue',
+    //     padding: "10px",
+    //     placeItems: "center", //ทำให้ item ที่อยู่ใน grid จัดกึ่งกลาง
+    //   }}
+    // >
+    <div className="flexwrap-card">
+    <div className="grid-card">
       {/* {Array.isArray(dataEquipment) ? (// */}
       {/* //  {dataSearch && dataSearch.length > 0 ? (  //ตรวจสอบว่ามีข้อมูลใน dataSearch หรือไม่ และเป็นอาร์เรย์ที่มีความยาวมากกว่า 0 หรือไม่ */}
       {loading ? (
@@ -98,9 +103,10 @@ function CardComponent({ dataSearch, loading }) {
         dataSearch.map((equipment, index) => (
           <Card
             key={equipment.eq_id || index}
-            className="shadow-sm border-0"
-            style={styleCard}
+            className="styleCard  shadow-sm border-0"
+           
           >
+             {/* style={styleCard} */}
             {/* <Card.Img variant="top" src="/item1.jpg" style={styleImg}/> */}
             {/* <Card.Img variant="top" src="http://localhost:8081/uploads/Gemini_Generated_Image_iajectiajectiaje.png-1765411409567.png" style={styleImg}/>
              */}
@@ -110,37 +116,43 @@ function CardComponent({ dataSearch, loading }) {
             <Card.Img
               variant="top"
               src={equipment.image_url ? equipment.image_url : noimage}
-              style={styleImg}
+              className="styleImg"
+              // style={styleImg}
             />
 
-            <Card.Body>
-              <Card.Title style={{ color: "var(--color-text-primary)" }}>
+            {/* <Card.Body style={{ backgroundColor:'var(--color-card-primary)'}}> */}
+             <Card.Body className="cBody">
+              <Card.Title className="cTitle">
                 {equipment.name_eq}
               </Card.Title>
-              <Card.Text style={styleFont}>{equipment.eq_id}</Card.Text>
-              <Card.Text style={styleFont}>
-                หน่วยงาน {equipment.name_department}{" "}
+              <Card.Text className="cText">{equipment.eq_id}</Card.Text>
+              <Card.Text className="cText">
+                หน่วยงาน {equipment.name_department}{" "}<br></br>
               </Card.Text>
-              <Card.Text style={styleFont}>
+              <Card.Text className="cText">
                 ราคา : {equipment.price_eq}{" "}
               </Card.Text>
-              <Card.Text style={styleFont}>
+              <Card.Text className="cText">
                 ปีงบประมาณ : {equipment.fiscal_year}
               </Card.Text>
             </Card.Body>
             <Card.Footer style={{ background: "var(--color-user-primary)" }}>
+                             {/* xs={6}
+                md={4} */}
               <Col
-                xs={6}
-                md={4}
                 style={{ display: "flex", alignItems: "center", gap: "8px" }}
               >
-                <Image src="icon2.png" roundedCircle style={styleUser} />
-                <small
+                <Image src="icon2.png" className="styleUser" roundedCircle/>
+                {/* <small
                   style={{
                     color: "var(--color-bg-primary)",
                     whiteSpace: "nowrap",
                   }}
+                > */}
+                 <small
+                     className="cTextUser"
                 >
+                  
                   {equipment.user_eq}
                 </small>
               </Col>
@@ -157,6 +169,7 @@ function CardComponent({ dataSearch, loading }) {
           }}>ไม่พบข้อมูลที่ค้นหา..</h3>
       )}
     </div>
+        </div>
   );
 }
 

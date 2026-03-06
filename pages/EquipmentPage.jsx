@@ -24,7 +24,7 @@ function EquipmentPage() {
     "toggleEq"
     "contentEq"
   `,
-    // height: "100vh",
+    height: "100vh",
     width: "100%",
   };
   // const mockData = [
