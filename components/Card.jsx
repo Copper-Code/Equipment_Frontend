@@ -125,7 +125,7 @@ function CardComponent({ dataSearch, loading }) {
               <Card.Title className="cTitle">
                 {equipment.name_eq}
               </Card.Title>
-              <Card.Text className="cText">{equipment.eq_id}</Card.Text>
+              <Card.Text className="cText" style={{fontWeight:600}}>{equipment.eq_id}</Card.Text>
               <Card.Text className="cText">
                 หน่วยงาน {equipment.name_department}{" "}<br></br>
               </Card.Text>

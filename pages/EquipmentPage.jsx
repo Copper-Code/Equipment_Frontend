@@ -24,8 +24,8 @@ function EquipmentPage() {
     "toggleEq"
     "contentEq"
   `,
-    height: "100vh",
-    width: "100%",
+    minHeight: "100vh",
+    width: "100%"
   };
   // const mockData = [
   //   { eq_id: 1, name_eq: "อุปกรณ์ A", brand_eq: "รายละเอียดของอุปกรณ์ A" },
