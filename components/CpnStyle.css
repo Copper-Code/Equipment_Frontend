@@ -126,8 +126,9 @@
   display: grid;
   grid-template-columns: auto auto auto;
   gap: 5px;
-  /* background-color:var(--color-bg-sidebar); */
+  background-color:var(--color-bg-sidebar);
   padding:10px;
+  padding-top:15px;
   margin:15px;
   
 }
@@ -146,6 +147,7 @@
   align-items: center;
   background-color:var(--color-bg-primary);
   padding:8px;
+
 
 }
 
