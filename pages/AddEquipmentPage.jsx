@@ -540,6 +540,8 @@ const AddEquipmentPage = () => {
             </div>
           </Col>
 
+
+
           <Col>
             <div>
               <div className="add_ss2">ข้อมูลการจัดซื้อ</div>
@@ -798,26 +800,16 @@ const AddEquipmentPage = () => {
             <Col>
               {previewImage ? (
                 <img
+                  className="previewImage"
                   src={previewImage}
                   alt="preview"
-                  style={{
-                    width: "200px",
-                    maxHeight: "200px",
-
-                    borderRadius: "8px",
-                  }}
                 />
               ) : (
                 <img
                   src={formData.upload_image ? formData.upload_image :noimage}
                   // src={`http://localhost:8081/uploads/${formData.upload_image ? formData.upload_image : `noimage.png`}`}
                   alt="preview"
-                  style={{
-                    width: "200px",
-                    maxHeight: "200px",
-
-                    borderRadius: "8px",
-                  }}
+                  className="previewImage"
                 />
               )}
             </Col>
