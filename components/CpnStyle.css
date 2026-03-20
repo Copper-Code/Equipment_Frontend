@@ -61,8 +61,8 @@
 
 }}
 
-/*Details Card List /* แท็บเล็ต */
-@media (min-width: 481px) and (max-width: 768px) {
+/*Details Card List /* แท็บเล็ต 481*/
+@media (min-width: 601px) and (max-width: 768px) {
   .grid-container {
   display: grid;
   grid-template-columns: auto auto auto;
@@ -76,7 +76,7 @@
    /* background-color:pink;  */
   /* text-align: left; */
   /* font-size: clamp(6px, 2.5vw,10px); */
-  font-size: clamp(8px, 1vw,10px);
+  font-size: clamp(9px, 1vw,10px);
   color:var(--color-text-primary);
 }
 .item1 {
@@ -88,8 +88,8 @@
 
 }
 .item1 img {
-  width:clamp(200px, 2.5vw,250px);
-  height: 50%;
+  width:clamp(150px, 2.5vw,200px);
+  height: 80%;
   object-fit: cover;
   
 }
@@ -120,8 +120,8 @@
 
 
 
- /* มือถือแนวตั้ง */
-@media (max-width: 480px) { 
+ /* มือถือแนวตั้ง 480*/
+@media (max-width: 600px) { 
   .grid-container {
   display: grid;
   grid-template-columns: auto auto auto;
@@ -150,8 +150,8 @@
 }
 
 .item1 img {
-  width:clamp(200px, 2.5vw,250px);
-  height: 50%;
+  width:clamp(100px, 1vw,150px);
+  height:50%;
   object-fit: cover;
 }
 .item2{
@@ -159,21 +159,22 @@
 }
 .item4{
   /* background-color:var(--color-user-primary); */
+
   background:var(--color-user-primary); 
   border-radius:10px;
   display: flex;
   justify-content: center;
   align-items: center;
   color:white;
-  font-size:20px;
-  height:35px;
+  font-size: 14px;
+  height:30px;
 }
 
 .item5{
   background:var(--color-font-primary); 
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent; 
-  font-size:20px;
+  font-size:14px;
   grid-column: span 2;
   text-align:right;
 
