@@ -15,7 +15,7 @@ import { useNavigate } from "react-router-dom";
 import Select from "react-select";
 
 const AddEquipmentPage = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const [validated, setValidated] = useState(false);
   const [previewImage, setPreviewImage] = useState(null);
   const noimage = "https://res.cloudinary.com/dpxabqt4z/image/upload/v1771990599/noimage_kqt3oi.png";
@@ -797,7 +797,8 @@ const AddEquipmentPage = () => {
 
         <section className="add_section4 shadow-sm">
           <Row>
-            <Col>
+              <Col  xs={12} xl={3}>
+            <div className="img-center">
               {previewImage ? (
                 <img
                   className="previewImage"
@@ -812,9 +813,10 @@ const AddEquipmentPage = () => {
                   className="previewImage"
                 />
               )}
+              </div>
             </Col>
 
-            <Col>
+         <Col  xs={12} xl={3}>
               <Form.Group controlId="formFileSm" className="mb-3">
                 <Form.Label>อัพโหลดภาพ</Form.Label>
                 <Form.Control
@@ -828,7 +830,7 @@ const AddEquipmentPage = () => {
               </Form.Group>
             </Col>
 
-            <Col>
+        <Col>
               <Form.Group
                 className="mb-1"
                 controlId="exampleForm.ControlInput1"
@@ -893,7 +895,7 @@ const AddEquipmentPage = () => {
                 </div>
               </Form.Group>
             </Col>
-            <Col>
+ <Col  xs={12} xl={3}>
               <div style={{ maxWidth: 400 }}>
                 <Form.Group
                   className="mb-1"
@@ -940,13 +942,13 @@ const AddEquipmentPage = () => {
           </Row>
         </section>
 
-        <section>
+        <section  className="btn-add">
           <Button
             // onClick={handleSubmit}
             type="submit"
             variant="primary"
             size="lg"
-            style={{ margin: "30px" }}
+           
           >
             เพิ่มข้อมูล
           </Button>
