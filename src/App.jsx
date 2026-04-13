@@ -7,6 +7,7 @@ import AddEquipmentPage from '../pages/AddEquipmentPage';
 import MaintainPage from '../pages/MaintainPage';
 import SettingPage from '../pages/SettingPage';
 import NotFoundPage from '../pages/NotFoundPage';
+import TableScroll from '../components/TableScroll';
 // import UpdateEqPage from '../pages/updateEqPage';
 import EditEqPage from '../pages/EditEqPage';
 
@@ -18,7 +19,8 @@ const App = () => {
         <Route path="equipment" element={<EquipmentPage/>}/>
         <Route path="add_equipment" element={<AddEquipmentPage/>}/>
         <Route path="maintain" element={<MaintainPage/>}/>
-        <Route path="settings" element={<SettingPage/>}/>
+        {/* <Route path="settings" element={<SettingPage/>}/> */}
+         <Route path="settings" element={<TableScroll/>}/>
         <Route path="edit/:eq_id" element={<EditEqPage/>}/>
         <Route path="*" element={<NotFoundPage/>}/>
         </Route>

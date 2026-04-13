@@ -4,6 +4,7 @@ import TableDB from "../components/TableDB";
 import ButtonToggle from "../components/ButtonToggle";
 import { useEffect, useState } from "react";
 import AppSearch from "../components/AppSearch";
+import TableScroll from "../components/TableScroll";
 // import TestFilter from "../components/TestFilter";
 import axios from "axios";
 // import { set } from "date-fns";
@@ -25,7 +26,8 @@ function EquipmentPage() {
     "contentEq"
   `,
     minHeight: "100vh",
-    width: "100%"
+    width: "100%",
+    maxWidth: "100%"
   };
   // const mockData = [
   //   { eq_id: 1, name_eq: "อุปกรณ์ A", brand_eq: "รายละเอียดของอุปกรณ์ A" },
@@ -109,7 +111,7 @@ function EquipmentPage() {
       case "cardlist":
         return <Cardlist dataSearch={displayData} loading={loading} />;
       case "tabledb":
-        return <TableDB dataSearch={displayData} loading={loading} refreshData={fetchEquipment} />;
+        return <TableScroll dataSearch={displayData} loading={loading} refreshData={fetchEquipment} />;
       default:
         return <CardComponent dataSearch={displayData} loading={loading} />;
     }
